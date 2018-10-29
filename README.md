@@ -1,1 +1,3 @@
-# ACO-JS
+# Ant Colony Optimization JavaScript Demo
+
+
