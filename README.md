@@ -1,5 +1,7 @@
 # Ant Colony Optimization JavaScript Demo
 
+[Live](https://tianyou-song.github.io/ACO-JS/)
+
 ## Background and Overview 
 
 Ant Colony Optimization (ACO) is a computer algorithm used to solve the classic traveling salesman problem. 
