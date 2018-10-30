@@ -7,7 +7,7 @@ It simulates "ants" traveling between nodes, and leaving "pheromone" trails that
 
 ## Functionality and MVP Features 
 
-- [] a canvas representing a Neutonian plane in which the ants travel
+- [] a canvas representing a plane in which the ants travel
 - [] user able to place points on the canvas representing nodes
 - [] user able to tweak the parameters of the algotithm
 - [] user able to hit start, and animation of ants traveling the paths between nodes start playing 
