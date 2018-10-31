@@ -1,14 +1,16 @@
-const path = require('path');
+"use strict";
+
+const path = require("path");
 
 module.exports = {
-  context: __dirname,
-  entry: './js/app.js',
-  output: {
-    path: path.resolve(__dirname),
-    filename: 'bundle.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '*']
-  },
-  devtool: 'source-map'
+    context: __dirname,
+    entry: "./js/app.js",
+    output: {
+        path: path.resolve(__dirname),
+        filename: "bundle.js"
+    },
+    resolve: {
+        extensions: [".js", "*"]
+    },
+    devtool: "source-map"
 };
