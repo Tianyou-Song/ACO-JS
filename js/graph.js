@@ -16,8 +16,8 @@ class Graph {
     }
 
     getEdge(city1, city2) {
-        edge1 = this.edges[`${city1.toString()}-${city2.toString()}`];
-        edge2 = this.edges[`${city2.toString()}-${city1.toString()}`];
+        const edge1 = this.edges[`${city1.toString()}-${city2.toString()}`];
+        const edge2 = this.edges[`${city2.toString()}-${city1.toString()}`];
         if (edge1 != undefined) {
             return edge1
         } else if (edge2 != undefined) {
@@ -35,7 +35,7 @@ class Graph {
     }
 
     resetPheromone() {
-        for (let edgeIndex in this.edges) {
+        for (const edgeIndex in this.edges) {
             this.edges[edgeIndex].resetPheromone();
         }
     }

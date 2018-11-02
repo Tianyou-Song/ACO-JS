@@ -1,11 +1,15 @@
 "use strict";
 
-import Demo from './demo'
+import Canvas from './canvas'
+import Artist from './artist'
+import Colony from './colony'
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
-
-    const demo = new Demo(context);
-    demo.render();
+    const startButton = document.getElementById('start-button');
+    const currentCanvas = new Canvas(canvas);
+    const colony = new Colony();
+    const artist = new Artist(colony, currentCanvas);
+    canvas.addEventListener('click', currentCanvas.click);
+    startButton.addEventListener('click', artist.run);
 });

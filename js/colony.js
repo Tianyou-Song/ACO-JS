@@ -4,7 +4,7 @@ import Ant from './ant';
 class Colony {
     constructor(params) {
         this.graph = new Graph();
-        this.colony = [];
+        this.ants = [];
 
         this.colonySize = 20;
         this.alpha = 1;
@@ -17,8 +17,10 @@ class Colony {
         this.maxIterations = 250;
         this.minScalingFactor = 0.001;
 
-        this.setParams(params);
-
+        if (params != undefined) {
+            this.setParams(params);
+        }
+        
         this.iteration = 0
         this.minPheromone = null;
         this.maxPheromone = null;
@@ -29,9 +31,9 @@ class Colony {
     }
 
     createAnts() {
-        this.colony = [];
+        this.ants = [];
         for (let antIndex = 0; antIndex < this.colonySize; antIndex++) {
-            this.colony.push(new Ant(this.graph, {
+            this.ants.push(new Ant(this.graph, {
                 alpha: this.alpha,
                 beta: this.beta,
                 q: this.q
@@ -87,8 +89,8 @@ class Colony {
     }
 
     setInitialPheromone() {
-        const edges = this.graph.getEdges();
-        for (let edgeIndex in edges) {
+        const edges = this.graph.edges;
+        for (const edgeIndex in edges) {
             edges[edgeIndex].initialPheromone = this.initPheromone;
         }
     }
@@ -122,8 +124,8 @@ class Colony {
         }
 
         this.resetAnts();
-        for (let antIndex in this.colony) {
-            this.colony[antIndex].run();
+        for (const antIndex in this.ants) {
+            this.ants[antIndex].run();
         }
         this.getGlobalBest();
         this.updatePheromone();
@@ -133,7 +135,7 @@ class Colony {
     updatePheromone() {
         const edges = this.graph.edges;
 
-        for (let edgeIndex in edges) {
+        for (const edgeIndex in edges) {
             let pheromone = edges[edgeIndex].getPheromone();
             edges[edgeIndex].setPheromone(pheromone * (1 - this.rho));
         }
@@ -149,15 +151,15 @@ class Colony {
             this.minPheromone = this.maxPheromone * this.minScalingFactor;
             best.addPheromone();
         } else {
-            for (let antIndex in this.colony) {
-                this.colony[antIndex].addPheromone();
+            for (const antIndex in this.ants) {
+                this.ants[antIndex].addPheromone();
             }
         }
 
         if (this.type === 'elitist') {
             this.getGlobalBest().addPheromone(this.elitistWeight);
         } else if (this.type === 'maxmin') {
-            for (let edgeIndex in edges) {
+            for (const edgeIndex in edges) {
                 let pheromone = edges[edgeIndex].pheromone;
                 
                 if (pheromone > this.maxPheromone) {
@@ -173,16 +175,16 @@ class Colony {
     }
 
     getIterationBest() {
-        if (this.colony[0].tour === null) {
+        if (this.ants[0].tour === null) {
             return null;
         }
 
         if (this.iterationBest === null) {
-            const best = this.colony[0];
+            const best = this.ants[0];
 
-            for (let antIndex in this.colony) {
-                if (best.tour.distance >= this.colony[antIndex].tour.distance) {
-                    this.iterationBest = this.colony[antIndex];
+            for (const antIndex in this.ants) {
+                if (best.tour.distance >= this.ants[antIndex].tour.distance) {
+                    this.iterationBest = this.ants[antIndex];
                 }
             }
         }
