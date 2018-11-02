@@ -14,6 +14,17 @@ class Artist {
         this.iterationHook = null;
 
         this.run = this.run.bind(this);
+        this.click = this.click.bind(this);
+        this.drawBg = this.drawBg.bind(this);
+        this.drawEdges = this.drawEdges.bind(this);
+        this.drawNodes = this.drawNodes.bind(this);
+        this.drawCurrentBest = this.drawCurrentBest.bind(this);
+        this.clearGraph = this.clearGraph.bind(this);
+        this.stop = this.stop.bind(this);
+        this.step = this.step.bind(this);
+        this.animateAnts = this.animateAnts.bind(this);
+        this.drawAnt = this.drawAnt.bind(this);
+        this.moveAnt = this.moveAnt.bind(this);
     }
 
     click() {
@@ -66,7 +77,7 @@ class Artist {
             if (edges.hasOwnProperty(edgeIndex)) {
                 const edge = edges[edgeIndex];
                 const graphSize = this.colony.graph.cities.length;
-                const alpha = 0.2;
+                let alpha = 0.2;
                 let width = 1;
 
                 if (this.colony.iteration > 0) {
@@ -104,6 +115,7 @@ class Artist {
 
     drawCurrentBest() {
         const ant = this.colony.getGlobalBest();
+        debugger;
 
         if (ant === null || ant.tour === null) {
             return;
@@ -114,11 +126,11 @@ class Artist {
         const color = "#00ff7f";
         const width = 3;
 
-        for (let tourIndex = 0; tourIndex < this.cities.length; tourIndex++) {
-            const currentStop = this.cities[tourIndex];
+        for (let tourIndex = 0; tourIndex < tour.cities.length; tourIndex++) {
+            const currentStop = tour.cities[tourIndex];
 
-            if (tourIndex < this.cities.length - 1) {
-                const nextStop = this.cities[tourIndex + 1];
+            if (tourIndex < tour.cities.length - 1) {
+                const nextStop = tour.cities[tourIndex + 1];
 
                 this.canvas.drawLine(currentStop.x, currentStop.y, nextStop.x, nextStop.y, {
                     alpha,
@@ -126,7 +138,7 @@ class Artist {
                     width
                 });
             } else {
-                const tourStart = this.cities[0];
+                const tourStart = tour.cities[0];
 
                 this.canvas.drawLine(currentStop.x, currentStop.y, tourStart.x, tourStart.y, {
                     alpha,
@@ -170,6 +182,7 @@ class Artist {
 
         for (let i = 0; i < 3; i++) {
             this.colony.step();
+            this.draw();
         }
 
         this.animateAnts();
@@ -180,7 +193,7 @@ class Artist {
     }
 
     animateAnts() {
-        const animationIndex = 2;
+        let animationIndex = 2;
 
         this.animationIterator = setInterval(() => {
             this.draw();
@@ -200,8 +213,8 @@ class Artist {
     }
 
     moveAnt(ant, tourIndex, animationStep) {
-        const fromCity = ant.this.cities[tourIndex - 1];
-        const toCity = ant.this.cities[tourIndex];
+        const fromCity = ant.tour.cities[tourIndex - 1];
+        const toCity = ant.tour.cities[tourIndex];
         const xOffset = (toCity.x - fromCity.x) * ((1 / this.animationSteps) * animationStep);
         const yOffset = (toCity.y - fromCity.y) * ((1 / this.animationSteps) * animationStep);
 
@@ -212,7 +225,7 @@ class Artist {
     }
 
     drawAnt(x, y) {
-        this.canvas.drawCicle(x, y, {
+        this.canvas.drawCircle(x, y, {
             alpha: 0.5,
             size: 2
         });

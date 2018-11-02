@@ -2,7 +2,7 @@ class Tour {
     constructor(graph) {
         this.graph = graph;
         this.cities = [];
-        this.distance = null;
+        this.distance_total = null;
     }
 
     contains(city) {
@@ -15,12 +15,12 @@ class Tour {
     }
 
     addCity(city) {
-        this.distance = null;
+        this.distance_total = null;
         this.cities.push(city);
     }
 
     distance() {
-        if(this.distance === null) {
+        if(this.distance_total === null) {
             let distance = 0.0;
 
             for (let tourIndex = 0; tourIndex < this.cities.length; tourIndex++) {
@@ -33,10 +33,10 @@ class Tour {
                 distance += edge.distance;
             }
 
-            this.distance = distance;
+            this.distance_total = distance;
         }
 
-        return this.distance;
+        return this.distance_total;
     }
 }
 

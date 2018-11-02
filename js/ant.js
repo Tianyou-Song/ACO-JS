@@ -55,10 +55,10 @@ class Ant {
         if (this.tour === null) {
             return false;
         }
-        return (this.tour.length >= this.graph.cities.length);
+        return (this.tour.cities.length >= this.graph.cities.length);
     }
 
-    run(callback) {
+    run() {
         this.tour = null;
         while(!this.tourFound()) {
             this.makeNextMove();
