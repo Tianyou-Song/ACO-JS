@@ -92,7 +92,7 @@ class Canvas {
         }
 
         this.context.fillStyle = color;
-        this.context.globalSlpha = alpha;
+        this.context.globalAlpha = alpha;
         this.context.fillRect(a, b, c, d)
     }
 

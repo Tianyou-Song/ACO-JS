@@ -58,7 +58,7 @@ class Artist {
 
     drawBg() {
         this.canvas.drawRectangle(0, 0, this.canvas.element.width, this.canvas.element.height, {
-            color: "lightgray"
+            color: "#f8f8f8"
         });
     }
 
@@ -77,13 +77,13 @@ class Artist {
             if (edges.hasOwnProperty(edgeIndex)) {
                 const edge = edges[edgeIndex];
                 const graphSize = this.colony.graph.cities.length;
-                let alpha = 0.2;
+                let alpha = 0.1;
                 let width = 1;
 
                 if (this.colony.iteration > 0) {
-                    width = Math.ceil((edge.pheromone / totalPheromone) * (graphSize * 6));
+                    width = Math.ceil((edge.pheromone / totalPheromone) * (graphSize * 8));
 
-                    alpha = (edge.pheromone / totalPheromone) * graphSize + 0.03;
+                    alpha = (edge.pheromone / totalPheromone) * graphSize + 0.1;
                     if (alpha > 0.8) {
                         alpha = 0.8;
                     }
@@ -106,7 +106,7 @@ class Artist {
                 const node = nodes[nodeIndex];
 
                 this.canvas.drawCircle(node.x, node.y, {
-                    alpha: 0.8,
+                    alpha: 0.9,
                     color: 'yellow'
                 });
             }
