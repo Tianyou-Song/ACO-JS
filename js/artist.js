@@ -84,8 +84,8 @@ class Artist {
                     width = Math.ceil((edge.pheromone / totalPheromone) * (graphSize * 6));
 
                     alpha = (edge.pheromone / totalPheromone) * graphSize + 0.03;
-                    if (alpha > 1) {
-                        alpha = 1;
+                    if (alpha > 0.8) {
+                        alpha = 0.8;
                     }
                 }
 

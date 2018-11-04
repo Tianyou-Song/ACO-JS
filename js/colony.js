@@ -164,11 +164,11 @@ class Colony {
                 let pheromone = edges[edgeIndex].pheromone;
                 
                 if (pheromone > this.maxPheromone) {
-                    edges[edgeIndex].setPheromone(this.maxPheromone);
+                    edges[edgeIndex].pheromone = this.maxPheromone;
                 } else if (pheromone < this.minPheromone) {
-                    edges[edgeIndex].setPheromone(this.minPheromone);
+                    edges[edgeIndex].pheromone = this.minPheromone;
                 } else {
-                    edges[edgeIndex].setPheromone(pheromone);
+                    edges[edgeIndex].pheromone = pheromone;
                 }
             }
         }
