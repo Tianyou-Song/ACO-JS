@@ -115,7 +115,6 @@ class Artist {
 
     drawCurrentBest() {
         const ant = this.colony.getGlobalBest();
-        debugger;
 
         if (ant === null || ant.tour === null) {
             return;
@@ -182,7 +181,6 @@ class Artist {
 
         for (let i = 0; i < 3; i++) {
             this.colony.step();
-            this.draw();
         }
 
         this.animateAnts();

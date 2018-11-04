@@ -9,6 +9,9 @@ class Ant {
         this.beta = params.beta;
         this.q = params.q;
         this.tour = null;
+        this.addPheromone = this.addPheromone.bind(this);
+        this.init = this.init.bind(this);
+        this.makeNextMove = this.makeNextMove.bind(this);
     }
 
     init() {
@@ -20,7 +23,7 @@ class Ant {
 
     makeNextMove() {
         if (this.tour === null) {
-            this.init()
+            this.init();
         }
 
         let rouletteWheel = 0.0;
@@ -66,19 +69,18 @@ class Ant {
     }
 
     addPheromone(weight = 1) {
-        const extraPheromone = (this._q * weight) / this.tour.distance();
-
-        for (let tourIndex = 0; tourIndex < this.tour.length; tourIndex++) {
-            let fromCity = this.tour.get(tourIndex);
-            if (tourIndex >= this.tour.length - 1) {
-                let toCity = this.tour.get(0);
-                let edge = this.graph.getEdge(fromCity, toCity);
-                let pheromone = edge.pheromone;
+        const extraPheromone = (this.q * weight) / this.tour.distance();
+        for (let tourIndex = 0; tourIndex < this.tour.cities.length; tourIndex++) {
+            const fromCity = this.tour.cities[tourIndex];
+            if (tourIndex >= this.tour.cities.length - 1) {
+                const toCity = this.tour.cities[0];
+                const edge = this.graph.getEdge(fromCity, toCity);
+                const pheromone = edge.pheromone;
                 edge.pheromone = pheromone + extraPheromone;
             } else {
-                let toCity = this.tour.get(tourIndex + 1);
-                let edge = this.graph.getEdge(fromCity, toCity);
-                let pheromone = edge.pheromone;
+                const toCity = this.tour.cities[tourIndex + 1];
+                const edge = this.graph.getEdge(fromCity, toCity);
+                const pheromone = edge.pheromone;
                 edge.pheromone = pheromone + extraPheromone;
             }
         }

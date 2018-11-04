@@ -13,6 +13,63 @@
     <h1>Ant Colony Optimization Demo</h1>
 
     <canvas id='canvas' width='720' height='480'></canvas>
-    <button id='start-button'>start</button>
+
+    <div id='info-display'>
+        <label>Iteration:
+            <div id='iteration-info'></div>
+        </label>
+        <label>Best distance:
+            <div id='best-distance-info'></div>
+        </label>
+    </div>
+
+    <button id='start-button'>Start</button>
+    <button id='clear-button'>Clear</button>
+    
+    <div class='params'>
+        <label>Colony size:
+            <input type='number' id='colony-size' value='30' />
+        </label>
+    
+        <label>Alpha:
+            <input type='number' id='alpha' value='1' />
+        </label>
+
+        <label>Beta:
+            <input type='number' id='beta' value='3' />
+        </label>
+    
+        <label>Rho:
+            <input type='number' id='rho' value='0.1' />
+        </label>
+
+        <label>Pheromone deposit weight:
+            <input type='number' id='q' value='1'/>
+        </label>
+    
+        <label>Initial pheromone:
+            <input type='number' id='initial-pheremone' value='1' />
+        </label>
+
+        <label>Max iterations:
+            <input type='number' id='iterations' value='200' />
+        </label>
+
+        <label>Type:
+            <select id='type'>
+                <option value='acs'>ACS</option>
+                <option value='elitist'>Elitest</option>
+                <option value='maxmin'>Max-Min</option>
+            </select>
+        </label>
+
+        <label id='elitest-weight-container'>Elitest weight:
+                <input type='number' id='elitest-weight' value='2' />
+        </label>
+
+        <label id='min-scaling-factor-container'>Minimum scaling factor:
+                <input type='number' id='min-scaling-factor' value='0.001' />
+        </label>
+    </div>
 </body>
 </html>

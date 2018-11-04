@@ -55,7 +55,7 @@ class Colony {
             this.rho = params.rho;
         }
         if (params.iterations != undefined) {
-            this._maxIterations = params.iterations;
+            this.maxIterations = params.iterations;
         }
         if (params.q != undefined) {
             this.q = params.q;
