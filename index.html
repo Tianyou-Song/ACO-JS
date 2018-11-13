@@ -15,15 +15,15 @@
         <p class='description'>This is a visual demo which uses the <a href='https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms'>Ant Colony Optimization alrogithm</a> to solve the classic <a href='https://en.wikipedia.org/wiki/Travelling_salesman_problem'>traveling salesman problem</a>.</p>
         <ol class='instructions'>
             <li>Start by placing at least 2 "cities" by clicking inside the canvas below.</li>
-            <li>Tweak settings as desired (or leave them alone for a reasonable default).</li>
-            <li>Click Start and see the visualization of how the algorithm determines the shortest path between all of the cities.</li>
+            <li>Tweak parameter settings as desired (or leave them alone for a reasonable default).</li>
+            <li>Click Start and see the visualization of how the algorithm determines the shortest path that travels through all of the "cities".</li>
         </ol>
     </header>
 
     <canvas id='canvas' width='720' height='480'></canvas>
 
     <ul class='clarification'>
-        <li>The yellow dots represent the "cities", in which the "ants" will be </li>
+        <li>The yellow dots represent the "cities", in which the "ants" will be traveling between.</li>
         <li>The blue lines represent all of the possible paths between the cities. Their Thickness represent the "pheromone" on that particular path.</li>
         <li>The moving black dots represent the "ants" crawing along the paths.</li>
         <li>The green line represent the current best(shortest) route that travels through all of the "cities" as determined by the algorithm.</li>
@@ -38,6 +38,8 @@
             </div>
         
             <div class='params'>
+                <h2>Parameters: </h2>
+
                 <label>Colony size:
                     <input type='number' id='colony-size' value='30' />
                 </label>
@@ -86,9 +88,13 @@
 
         <div class='bottom-right'>
             <div id='info-display'>
+                
+                <h2>Info: </h2>
+
                 <label>Iteration:
                     <div id='iteration-info'></div>
                 </label>
+
                 <label>Best distance:
                     <div id='best-distance-info'></div>
                 </label>
