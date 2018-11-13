@@ -1,14 +1,76 @@
+html {
+    background-color: #1b1c21;
+    color: white;
+    font-family: sans-serif;
+}
+
 body {
-    /* display: flex;
-    flex-direction: column; */
+    
+}
+
+header {
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 16px;
+}
+
+.description {
+    margin-left: 16px;
+}
+
+.instructions {
+    margin-left: 16px;
+}
+
+a {
+    color: blue;
 }
 
 canvas {
     border: 1px solid black;
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+
+.clarification {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
     margin-left: 16px;
 }
 
 .params {
     display: flex;
     flex-direction: column;
+}
+
+#start-button {
+    background-color: green;
+}
+
+#clear-button {
+    background-color: red;
+}
+
+label {
+    width: 260px;
+    margin-top: 16px;
+}
+
+input, select {
+    width: 50px;
+    float: right;
+    background-color: white;
+    color: black;
+}
+
+#info-display {
+    margin-left: 16px;
 }

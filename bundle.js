@@ -345,7 +345,7 @@ class Artist {
 
     drawBg() {
         this.canvas.drawRectangle(0, 0, this.canvas.element.width, this.canvas.element.height, {
-            color: "#f8f8f8"
+            color: "brown"
         });
     }
 
