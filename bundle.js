@@ -345,7 +345,7 @@ class Artist {
 
     drawBg() {
         this.canvas.drawRectangle(0, 0, this.canvas.element.width, this.canvas.element.height, {
-            color: "brown"
+            color: "white"
         });
     }
 
@@ -378,7 +378,7 @@ class Artist {
 
                 this.canvas.drawLine(edge.point1().x, edge.point1().y, edge.point2().x, edge.point2().y, {
                     alpha,
-                    color: "#007fff",
+                    color: "#0000ff",
                     width
                 });
             }
@@ -394,7 +394,7 @@ class Artist {
 
                 this.canvas.drawCircle(node.x, node.y, {
                     alpha: 0.9,
-                    color: 'yellow'
+                    color: '#ffff00'
                 });
             }
         }
@@ -409,7 +409,7 @@ class Artist {
 
         const tour = ant.tour;
         const alpha = 0.9;
-        const color = "#00ff7f";
+        const color = "#00ff00";
         const width = 3;
 
         for (let tourIndex = 0; tourIndex < tour.cities.length; tourIndex++) {
