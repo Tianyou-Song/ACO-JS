@@ -1,19 +1,11 @@
-# Ant Colony Optimization JavaScript Demo
+# README
+
+## Ant Colony Optimization Demo
+
+[Ant Colony Optimization](https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms) (ACO) is a computer algorithm used to solve the classic [traveling salesman problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem). 
+It simulates "ants" traveling between the cities", and leaving "pheromone" trails that disapates over time, which influences the probability of other ants picking to travel the same trail.
 
 [Live](https://tianyou-song.github.io/ACO-JS/)
-
-## Background and Overview 
-
-Ant Colony Optimization (ACO) is a computer algorithm used to solve the classic traveling salesman problem. 
-It simulates "ants" traveling between nodes, and leaving "pheromone" trails that disapates over time, which influences the probability of other ants picking to travel the same trail.
-
-## Functionality and MVP Features 
-
-- [] a canvas representing a plane in which the ants travel
-- [] user able to place points on the canvas representing nodes
-- [] user able to tweak the parameters of the algotithm
-- [] user able to hit start, and animation of ants traveling the paths between nodes start playing 
-- [] the canvas eventually shows the ACO path after many iterations(which the user define)
 
 ## Architecture and Technologies 
 
@@ -21,29 +13,26 @@ It simulates "ants" traveling between nodes, and leaving "pheromone" trails that
 * `HTML5 Canvas` for DOM manipulation and rendering
 * Webpack to bundle and serve up the various scripts
 
-## Implementation Timeline
+## Features
 
-### Day 1
-- [] Start learning the ACO algorithm
-- [] Start learning Canvas
-- [] Set up the project sleketon as well as all Node moduels.
+### HTML5 Canvas
 
-### Day 2
-- [] Finish learning ACO algorithm
-- [] Start writing the ACO algorithm in JS code
-- [] Continue learning Canvas
+Used to display dynamic and interactive graphics and animations
 
-### Day 3
-- [] Continue learning Canvas
-- [] Continue writing ACO algorithm
+![alt text]()
 
-### Day 4
-- [] Finish ACO algorithm in JS
-- [] Finish learning Canvas
-- [] Start rendering the algorithm demo
+```js
+click(mouseEvent) {
+        this.canvasPos = this.element.getBoundingClientRect();
+        const mouseX = mouseEvent.clientX - this.canvasPos.left;
+        const mouseY = mouseEvent.clientY - this.canvasPos.top;
+        this.mousePos.x = mouseX;
+        this.mousePos.y = mouseY;
 
-### Day 5
-- [] Continue rendering the algorithm demo
+        if (typeof(this.clickHook) === 'function') {
+            this.clickHook();
+        };
+    }
+```
 
-### Weekend
-- [] Finish rendering
+### 
