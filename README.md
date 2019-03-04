@@ -6,12 +6,14 @@
 
 [Ant Colony Optimization](https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms) (ACO) is a computer algorithm used to solve the classic [traveling salesman problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem). 
 It simulates "ants" traveling between the cities", and leaving "pheromone" trails that disapates over time, which influences the probability of other ants picking to travel the same trail.
+</br>
 
 ## Architecture and Technologies 
 
 * Vanilla JavaScript for the overall structure as well as the algorithm logic
 * `HTML5 Canvas` for DOM manipulation and rendering
 * Webpack to bundle and serve up the various scripts
+</br>
 
 ## Features
 
@@ -34,6 +36,8 @@ click(mouseEvent) {
         };
     }
 ```
+
+</br>
 
 ### Objective Oriented Programming standards
 
