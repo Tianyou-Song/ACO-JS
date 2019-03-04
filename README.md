@@ -2,10 +2,10 @@
 
 ## Ant Colony Optimization Demo
 
+[Live](https://tianyou-song.github.io/ACO-JS/)
+
 [Ant Colony Optimization](https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms) (ACO) is a computer algorithm used to solve the classic [traveling salesman problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem). 
 It simulates "ants" traveling between the cities", and leaving "pheromone" trails that disapates over time, which influences the probability of other ants picking to travel the same trail.
-
-[Live](https://tianyou-song.github.io/ACO-JS/)
 
 ## Architecture and Technologies 
 
@@ -19,7 +19,7 @@ It simulates "ants" traveling between the cities", and leaving "pheromone" trail
 
 Used to display dynamic and interactive graphics and animations
 
-![alt text]()
+![alt text](https://github.com/Tianyou-Song/ACO-JS/blob/master/images/canvas.png)
 
 ```js
 click(mouseEvent) {
@@ -35,4 +35,17 @@ click(mouseEvent) {
     }
 ```
 
-### 
+### Objective Oriented Programming standards
+
+Employed Object Oriented Programming standards in order to achieve an organized, scalable, and intuitive codebase.
+
+```js
+import Graph from './graph';
+import Ant from './ant';
+
+class Colony {
+    ...
+}
+
+export default Colony
+```
